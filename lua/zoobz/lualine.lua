@@ -1,5 +1,6 @@
 local lualine = require('lualine')
 
+-- Color scheme
 local colors = {
   bg       = '#282828',
   fg       = '#ebdbb2', 
@@ -13,6 +14,34 @@ local colors = {
   blue     = '#458588',
   red      = '#fb4934',
 }
+
+-- Selects a color based on neovims mode
+local function color()
+  local mode_color = {
+    n = colors.green,
+    i = colors.orange,
+    v = colors.blue,
+    [''] = colors.blue,
+    V = colors.blue,
+    c = colors.magenta,
+    no = colors.red,
+    s = colors.blue,
+    S = colors.blue,
+    [''] = colors.blue,
+    ic = colors.yellow,
+    R = colors.violet,
+    Rv = colors.violet,
+    cv = colors.red,
+    ce = colors.red,
+    r = colors.cyan,
+    rm = colors.cyan,
+    ['r?'] = colors.cyan,
+    ['!'] = colors.red,
+    t = colors.red,
+  }
+  return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
+end
+
 
 local conditions = {
   buffer_not_empty = function()
@@ -73,33 +102,6 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
--- Selects a color based on neovims mode
-local function color()
-  local mode_color = {
-    n = colors.green,
-    i = colors.blue,
-    v = colors.orange,
-    [''] = colors.orange,
-    V = colors.orange,
-    c = colors.magenta,
-    no = colors.red,
-    s = colors.blue,
-    S = colors.blue,
-    [''] = colors.blue,
-    ic = colors.yellow,
-    R = colors.violet,
-    Rv = colors.violet,
-    cv = colors.red,
-    ce = colors.red,
-    r = colors.cyan,
-    rm = colors.cyan,
-    ['r?'] = colors.cyan,
-    ['!'] = colors.red,
-    t = colors.red,
-  }
-  return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
-end
-
 ins_left {
   function()
     return '▊'
@@ -123,7 +125,6 @@ ins_left {
 }
 
 ins_left {
-  -- filesize component
   'filesize',
   cond = conditions.buffer_not_empty,
 }
@@ -175,22 +176,21 @@ ins_left {
 
 -- Add components to right sections
 ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
+  'o:encoding', 
+  fmt = string.upper, 
   cond = conditions.hide_in_width,
-  color = { fg = colors.fg, gui = 'bold' },
+  color = { fg = colors.fg },
 }
 
 ins_right {
   'fileformat',
   fmt = string.upper,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.fg, gui = 'bold' },
+  icons_enabled = false, 
+  color = { fg = colors.fg },
 }
 
 ins_right {
   'diff',
-  -- Is it me or the symbol for modified us really weird
   symbols = { added = ' ', modified = '柳', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },

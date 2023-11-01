@@ -11,7 +11,7 @@ set.fillchars = {eob = " "}
 set.tabstop = 2
 set.shiftwidth = 2
 set.expandtab = true
---set.cursorline = true
+set.cursorline = true
 set.termguicolors = true
 set.background = 'dark'
 

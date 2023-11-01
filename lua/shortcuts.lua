@@ -7,11 +7,16 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- telescope
+-- telescope finders
 map("n", "<Leader>ff", ":Telescope find_files prompt_prefix=🔍<CR>")
 map("n", "<Leader>fb", ":Telescope buffers prompt_prefix=🔍<CR>")
 map("n", "<Leader>ft", ":Telescope live_grep prompt_prefix=🔍<CR>")
 map("n", "<Leader>fd", ":Telescope file_browser prompt_prefix=🔍<CR>")
+
+-- telescope git
+map("n", "<Leader>gc", ":Telescope git_commits prompt_prefix=🔍<CR>")
+map("n", "<Leader>gb", ":Telescope git_branches prompt_prefix=🔍<CR>")
+map("n", "<Leader>gs", ":Telescope git_status prompt_prefix=🔍<CR>")
 
 -- bufferline
 map('n', '<Leader>=', '<Plug>(cokeline-focus-next)', { silent = true })

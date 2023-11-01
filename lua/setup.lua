@@ -1,44 +1,39 @@
 local set = vim.opt
 
+-- configure nvim
 set.textwidth = 0
 set.title = true
 set.hidden = true
-vim.cmd [[
-  set number relativenumber
-  set nu rnu
-]]
+set.nu = true
+set.rnu = true
+set.fillchars = {eob = " "}
 
 set.tabstop = 2
 set.shiftwidth = 2
 set.expandtab = true
-set.cursorline = true
+--set.cursorline = true
 set.termguicolors = true
 set.background = 'dark'
 
 set.completeopt = menu, menuone, noselect
 
-require('plugins')
-
+-- use plugins
+require('zoobz.autopair')
 require('zoobz.bufferline')
+require('zoobz.cmp')
+require('zoobz.gitsigns')
+require('zoobz.lsp')
 require('zoobz.lualine')
-require('zoobz.nvim-tree')
 require('zoobz.telescope')
 require('zoobz.treesitter')
-require('zoobz.lsp')
-require('zoobz.autopair')
 
--- treesitter hotfix
-require('hotfix.treesitter')
-treesitter_migrate()
-
+-- configure color scheme
 vim.cmd [[
   colorscheme gruvbox
 
   hi Normal guibg=NONE
-
-  hi GitSignsAdd guibg='#282828' guifg='#b8bb26'
-  hi GitSignsChange guibg='#282828' guifg='#fadb2f'
-  hi GitSignsDelete guibg='#282828' guifg='#fb4934'
+  hi SignColumn guibg=NONE
+  hi GitSignsAdd guibg=NONE guifg='#b8bb26'
+  hi GitSignsChange guibg=NONE guifg='#fadb2f'
+  hi GitSignsDelete guibg=NONE guifg='#fb4934'
 ]]
-
-

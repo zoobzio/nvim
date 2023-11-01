@@ -1,35 +1,50 @@
-local dark = '#282828'
-local high = '#d3869b'
+local bg0 = '#282828'
+local bg1 = '#3c3836'
+local primary = '#b8bb26'
 
-require("bufferline").setup{
+require('bufferline').setup{
   highlights = {
     fill = {
-      bg = dark,
+      bg = 'None',
     },
     background = {
-      bg = dark,
-    },
+      bg = bg0
+    }, 
     buffer_selected = {
-      fg = high,
+      fg = primary,
+      bg = bg1,
       italic = false,
     },
     indicator_selected = {
-      fg = high,
+      bg = bg1
+    },
+    separator_selected = {
+      bg = bg1,
     },
     separator = {
-      bg = dark,
+      fg = bg0,
+      bg = bg0
     },
+    modified_selected = {
+      bg = bg1
+    },
+    modified = {
+      bg = bg0
+    }
   },
   options = {
+    diagnostics = 'nvim_lsp',
+    indicator = {
+      style = "none"
+    },
     show_close_icon = false,
     show_buffer_close_icons = false,
-    offsets = {
-      {
-        filetype = "NvimTree",
-        text = " Directory",
-        text_align = "left",
-        separator = true
-      }
-    },
-  }
+    custom_areas = {
+      left = function()
+        local result = {}
+        table.insert(result, {text = "  ", bg = primary, fg = 'None'})
+        return result
+      end,
+    } 
+  },
 }

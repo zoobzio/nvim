@@ -18,12 +18,6 @@ packer.startup(function(use)
   use 'akinsho/bufferline.nvim'
   use 'nvim-lualine/lualine.nvim'
   
-  -- file tree
-  use {
-    'kyazdani42/nvim-tree.lua',
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
-  
   -- telescope
   use {
     'nvim-telescope/telescope.nvim', 
@@ -44,17 +38,24 @@ packer.startup(function(use)
   -- lsp
   use 'neovim/nvim-lspconfig'
 
+  -- code completion
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/cmp-cmdline' }
+  use { 'hrsh7th/nvim-cmp' }
+
+  -- code snippets
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'saadparwaiz1/cmp_luasnip' }
+  use { "rafamadriz/friendly-snippets" }
+
   -- code formatting
   use 'windwp/nvim-ts-autotag'
   use 'windwp/nvim-autopairs'
   use 'sbdchd/neoformat'
 
-  -- git
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  }  
+  -- gitsigns
+  use { 'lewis6991/gitsigns.nvim' }  
 end)
 

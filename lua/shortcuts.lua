@@ -8,10 +8,10 @@ function map(mode, lhs, rhs, opts)
 end
 
 -- telescope
-map("n", "<Leader>ff", ":Telescope find_files<CR>")
-map("n", "<Leader>fb", ":Telescope buffers<CR>")
-map("n", "<Leader>ft", ":Telescope live_grep<CR>")
-map("n", "<Leader>fd", ":Telescope file_browser<CR>")
+map("n", "<Leader>ff", ":Telescope find_files prompt_prefix=🔍<CR>")
+map("n", "<Leader>fb", ":Telescope buffers prompt_prefix=🔍<CR>")
+map("n", "<Leader>ft", ":Telescope live_grep prompt_prefix=🔍<CR>")
+map("n", "<Leader>fd", ":Telescope file_browser prompt_prefix=🔍<CR>")
 
 -- bufferline
 map('n', '<Leader>=', '<Plug>(cokeline-focus-next)', { silent = true })
@@ -27,9 +27,6 @@ map('n', '<Leader>8', ':BufferLineGoToBuffer 8<CR>', { silent = true })
 map('n', '<Leader>9', ':BufferLineGoToBuffer 9<CR>', { silent = true })
 map('n', '<Leader>q', ':bd<CR>')
 
--- tree
-map('n', '<Leader>t', ":NvimTreeToggle<CR>")
-
 -- autocommands
 local api = vim.api
 
@@ -37,5 +34,5 @@ local api = vim.api
 local formatGroup = api.nvim_create_augroup("FormatGroup", { clear = true })
 api.nvim_create_autocmd(
   { "BufWritePre" },
-  { pattern = "*.vue,*.ts,*.js", command = "Neoformat", group = formatGroup }
+  { pattern = "*.vue,*.ts,*.js,*.json,*.yaml", command = "Neoformat", group = formatGroup }
 )

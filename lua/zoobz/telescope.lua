@@ -10,12 +10,21 @@ end
 local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
+  defaults = {
+    sorting_strategy = "ascending",
+    layout_config = {
+      prompt_position = "top",
+      horizontal = { height = 0.5 },
+    }
+  },
   extensions = {
     file_browser = {
       hijack_netrw = true,
       respect_gitignore = false,
       hidden = true,
-      grouped = true
+      grouped = true,
+      dir_icon = "🖿",
+      git_status = false,
     },
   },
 }

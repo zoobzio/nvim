@@ -14,7 +14,6 @@ telescope.setup {
     sorting_strategy = "ascending",
     layout_config = {
       prompt_position = "top",
-      horizontal = { height = 0.5 },
     }
   },
   extensions = {

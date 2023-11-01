@@ -1,11 +1,6 @@
-local bg0 = '#282828'
-local bg1 = '#3c3836'
-local fg = '#ebdbb2'
-local primary = '#b8bb26'
-
 -- Color scheme
 local colors = {
-  bg       = '#282828',
+  bg       = '#3c3836',
   fg       = '#ebdbb2', 
   yellow   = '#fabd2f',
   cyan     = '#83a598',
@@ -18,84 +13,80 @@ local colors = {
   red      = '#fb4934',
 }
 
--- Color modes
-local mode_color = {
-  n = colors.green,
-  i = colors.orange,
-  v = colors.blue,
-  [''] = colors.blue,
-  V = colors.blue,
-  c = colors.magenta,
-  no = colors.red,
-  s = colors.blue,
-  S = colors.blue,
-  [''] = colors.blue,
-  ic = colors.yellow,
-  R = colors.violet,
-  Rv = colors.violet,
-  cv = colors.red,
-  ce = colors.red,
-  r = colors.cyan,
-  rm = colors.cyan,
-  ['r?'] = colors.cyan,
-  ['!'] = colors.red,
-  t = colors.red,
-}
-
 require('bufferline').setup{
   highlights = {
     fill = {
       bg = 'None',
     },
     background = {
-      bg = bg0
+      bg = 'None'
     }, 
     buffer_visible = {
-      bg = bg0
+      bg = 'None'
     },
     buffer_selected = {
-      fg = primary,
-      bg = bg1,
+      fg = colors.violet,
+      bg = 'None',
       italic = false,
     },
     indicator_selected = {
-      bg = bg1
+      bg = 'None',
+      fg = colors.violet
     },
     indicator_visible = {
-      bg = bg0
+      bg = 'None',
     },
     separator_selected = {
-      bg = bg1,
+      bg = 'None',
     },
     separator = {
-      fg = bg0,
-      bg = bg0
+      bg = 'None'
     },
     modified_selected = {
-      bg = bg1
+      bg = 'None'
     },
     modified = {
-      bg = bg0
+      bg = 'None'
+    },
+    error = {
+      bg = 'None',
+      italic = true
+    },
+    error_selected = {
+      fg = colors.red,
+      italic = true
+    },
+    error_visible = {
+      bg = 'None',
+      italic = true
+    },
+    error_diagnostic = {
+      bg = 'None',
+      italic = true
+    },
+    error_diagnostic_selected = {
+      fg = colors.red,
+      italic = true
+    },
+    error_diagnostic_visible = {
+      bg = 'None',
+      italic = true
     }
   },
   options = {
     diagnostics = 'nvim_lsp',
-    indicator = {
-      style = "none"
-    },
     show_close_icon = false,
     show_buffer_close_icons = false,
+    separator_style = {'', ''},
+    indicator = {
+      style = 'none'
+    },
     custom_areas = {
       left = function()
         local result = {}
-        table.insert(result, {text = "  ", bg = mode_color[vim.fn.mode()], fg = fg})
+        table.insert(result, {text = '  ', fg = colors.violet})
         return result
       end,
-      right = function()
-        local result = {}
-        table.insert(result, {text = " buffers ", bg = mode_color[vim.fn.mode()], fg = fg})
-        return result
-      end,
-    } 
+    }
   },
 }

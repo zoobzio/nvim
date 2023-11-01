@@ -2,7 +2,8 @@ local lualine = require('lualine')
 
 -- Color scheme
 local colors = {
-  bg       = '#282828',
+  bg       = 'None',
+  bg1      = '#3c3836',
   fg       = '#ebdbb2', 
   yellow   = '#fabd2f',
   cyan     = '#83a598',
@@ -18,13 +19,13 @@ local colors = {
 -- Selects a color based on neovims mode
 local function color()
   local mode_color = {
-    n = colors.green,
+    n = colors.violet,
     i = colors.orange,
     v = colors.blue,
     [''] = colors.blue,
     V = colors.blue,
-    c = colors.magenta,
-    no = colors.red,
+    c = colors.cyan,
+    no = colors.magenta,
     s = colors.blue,
     S = colors.blue,
     [''] = colors.blue,
@@ -41,7 +42,6 @@ local function color()
   }
   return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
 end
-
 
 local conditions = {
   buffer_not_empty = function()
@@ -106,33 +106,11 @@ ins_left {
   function()
     return '▊'
   end,
-  color = color,
-  padding = {
-    left = 0,
-    right = 1
-  }
+  color = color, 
+  padding = { left = 0, right = 1 }, 
 }
 
-ins_left {
-  'mode',
-  color = color,
-}
-
-ins_left {
-  'filename',
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.violet, gui = 'bold' },
-}
-
-ins_left {
-  'filesize',
-  cond = conditions.buffer_not_empty,
-}
-
-
-ins_left { 'location' }
-
-ins_left { 'progress', color = { fg = colors.fg } }
+ins_left {'filename', color = {fg = colors.violet, gui = 'bold'}}
 
 ins_left {
   'diagnostics',
@@ -144,6 +122,12 @@ ins_left {
     color_info = { fg = colors.cyan },
   },
 }
+
+ins_left {'progress'}
+
+ins_left {'location'}
+
+ins_left {'filesize'}
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
@@ -170,8 +154,8 @@ ins_left {
     end
     return msg
   end,
-  icon = ' LSP:',
-  color = { fg = colors.fg, gui = 'bold' },
+  icon = ' ',
+  color = { fg = colors.blue },
 }
 
 -- Add components to right sections
@@ -189,6 +173,8 @@ ins_right {
   color = { fg = colors.fg },
 }
 
+ins_right {'filetype'}
+
 ins_right {
   'diff',
   symbols = { added = ' ', modified = '柳', removed = ' ' },
@@ -200,22 +186,14 @@ ins_right {
   cond = conditions.hide_in_width,
 }
 
-ins_right {
-  'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
-}
+ins_right { 'branch', icon = "", color = {fg = colors.violet, gui = 'bold'} }
 
 ins_right {
   function()
     return '▊'
   end,
-  color = color,
-  padding = {
-    left = 1,
-    right = 0
-  }
+  color = color, 
+  padding = { left = 1, right = 0 }, 
 }
 
--- Now don't forget to initialize lualine
 lualine.setup(config)

@@ -18,9 +18,7 @@ map("n", "<Leader>gc", ":Telescope git_commits prompt_prefix=🔍<CR>")
 map("n", "<Leader>gb", ":Telescope git_branches prompt_prefix=🔍<CR>")
 map("n", "<Leader>gs", ":Telescope git_status prompt_prefix=🔍<CR>")
 
--- bufferline
-map('n', '<Leader>=', '<Plug>(cokeline-focus-next)', { silent = true })
-map('n', '<Leader>-', '<Plug>(cokeline-focus-prev)', { silent = true })
+-- lualine
 map('n', '<Leader>1', ':BufferLineGoToBuffer 1<CR>', { silent = true })
 map('n', '<Leader>2', ':BufferLineGoToBuffer 2<CR>', { silent = true })
 map('n', '<Leader>3', ':BufferLineGoToBuffer 3<CR>', { silent = true })
@@ -30,6 +28,8 @@ map('n', '<Leader>6', ':BufferLineGoToBuffer 6<CR>', { silent = true })
 map('n', '<Leader>7', ':BufferLineGoToBuffer 7<CR>', { silent = true })
 map('n', '<Leader>8', ':BufferLineGoToBuffer 8<CR>', { silent = true })
 map('n', '<Leader>9', ':BufferLineGoToBuffer 9<CR>', { silent = true })
+
+-- buffers
 map('n', '<Leader>q', ':bd<CR>')
 
 -- autocommands

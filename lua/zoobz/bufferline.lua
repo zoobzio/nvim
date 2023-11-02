@@ -60,10 +60,24 @@ require("bufferline").setup({
 			bg = "None",
 			fg = colors.fg,
 		},
+		numbers = {
+			bg = "None",
+		},
+		numbers_selected = {
+			bg = "None",
+			fg = colors.violet,
+			italic = false,
+		},
+		numbers_visible = {
+			bg = "None",
+		},
 		modified_selected = {
 			bg = "None",
 		},
 		modified = {
+			bg = "None",
+		},
+		modified_visible = {
 			bg = "None",
 		},
 		error = {
@@ -92,8 +106,12 @@ require("bufferline").setup({
 		},
 	},
 	options = {
+		numbers = function(opts)
+			return string.format("%s", opts.ordinal)
+		end,
 		diagnostics = "nvim_lsp",
 		show_close_icon = false,
+		show_buffer_icons = false,
 		show_buffer_close_icons = false,
 		indicator = {
 			style = "none",
@@ -107,7 +125,7 @@ require("bufferline").setup({
 			end,
 			right = function()
 				local result = {}
-				table.insert(result, { text = " ono-sendai " .. "▊", fg = colors.violet, bold = true })
+				table.insert(result, { text = " zoobz@ono-sendai " .. "▊", fg = colors.violet, bold = true })
 				return result
 			end,
 		},

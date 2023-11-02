@@ -3,7 +3,7 @@ local set = vim.opt
 -- configure nvim
 set.textwidth = 0
 set.title = true
-set.hidden = true
+--set.hidden = true
 set.nu = true
 set.rnu = true
 set.fillchars = { eob = " " }
@@ -15,7 +15,7 @@ set.cursorline = true
 set.termguicolors = true
 set.background = "dark"
 
-set.completeopt = menu, menuone
+set.completeopt = menu, menuone, noselect
 
 -- use plugins
 require("zoobz.autopair")
@@ -31,6 +31,8 @@ require("zoobz.treesitter")
 -- configure color scheme
 vim.cmd([[
   colorscheme gruvbox
+
+  filetype plugin on
 
   hi Normal guibg=NONE
   hi SignColumn guibg=NONE

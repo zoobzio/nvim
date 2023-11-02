@@ -1,5 +1,5 @@
 -- Functional wrapper for mapping custom keybindings
-function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
 	local options = { noremap = true }
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
@@ -48,5 +48,5 @@ local api = vim.api
 local formatGroup = api.nvim_create_augroup("FormatGroup", { clear = true })
 api.nvim_create_autocmd(
 	{ "BufWritePre" },
-	{ pattern = "*.vue,*.ts,*.js,*.json,*.yaml,*.lua", command = "Neoformat", group = formatGroup }
+	{ pattern = "*.vue,*.ts,*.js,*.json,*.yaml,*.lua,*.go,*.py", command = "Neoformat", group = formatGroup }
 )

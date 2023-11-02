@@ -1,3 +1,3 @@
-require('plugins')
-require('setup')
-require('shortcuts')
+require("plugins")
+require("setup")
+require("shortcuts")

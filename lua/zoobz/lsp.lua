@@ -3,7 +3,7 @@ if not status then
 	return
 end
 
-local protocol = require("vim.lsp.protocol")
+require("vim.lsp.protocol")
 
 -- TypeScript
 nvim_lsp.tsserver.setup({})

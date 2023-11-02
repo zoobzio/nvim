@@ -44,6 +44,7 @@ packer.startup(function(use)
 	use({ "hrsh7th/cmp-buffer" })
 	use({ "hrsh7th/cmp-path" })
 	use({ "hrsh7th/cmp-cmdline" })
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
 	use({ "hrsh7th/nvim-cmp" })
 
 	-- code snippets
@@ -59,4 +60,10 @@ packer.startup(function(use)
 	-- git
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "tpope/vim-fugitive" })
+
+	-- comments
+	use({ "preservim/nerdcommenter" })
+
+	-- golang
+	use({ "fatih/vim-go" })
 end)

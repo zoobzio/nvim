@@ -4,6 +4,7 @@ local lualine = require("lualine")
 local colors = {
 	bg = "None",
 	bg1 = "#3c3836",
+	bg2 = "#928374",
 	fg = "#ebdbb2",
 	yellow = "#fabd2f",
 	cyan = "#83a598",
@@ -81,6 +82,10 @@ local config = {
 		lualine_c = {},
 		lualine_x = {},
 	},
+	tabline = {
+		lualine_c = {},
+		lualine_x = {},
+	},
 	inactive_sections = {
 		-- these are to remove the defaults
 		lualine_a = {},
@@ -102,6 +107,55 @@ local function ins_right(component)
 	table.insert(config.sections.lualine_x, component)
 end
 
+-- Inserts a component in lualine_c at left tab section
+local function ins_tab_left(component)
+	table.insert(config.tabline.lualine_c, component)
+end
+
+-- Inserts a component in lualine_x ot right tab section
+local function ins_tab_right(component)
+	table.insert(config.tabline.lualine_x, component)
+end
+
+ins_tab_left({
+	function()
+		return "▊ "
+	end,
+	color = color,
+	padding = { left = 0, right = 1 },
+})
+
+ins_tab_left({
+	"buffers",
+	icons_enabled = false,
+	mode = 2,
+	buffers_color = {
+		active = { fg = colors.magenta, gui = "bold" },
+		inactive = { fg = colors.bg2 },
+	},
+	symbols = {
+		modified = " +",
+		alternate_file = "",
+	},
+})
+
+ins_tab_right({
+	"tabs",
+	show_modified_status = false,
+	tabs_color = {
+		active = { fg = colors.magenta, gui = "bold" },
+		inactive = { fg = colors.bg2 },
+	},
+})
+
+ins_tab_right({
+	function()
+		return "▊"
+	end,
+	color = color,
+	padding = { left = 1, right = 0 },
+})
+
 ins_left({
 	function()
 		return "▊"
@@ -110,12 +164,17 @@ ins_left({
 	padding = { left = 0, right = 1 },
 })
 
-ins_left({ "filename", color = { fg = colors.violet, gui = "bold" } })
+ins_left({
+	"mode",
+	color = color,
+})
+
+ins_left({ "filename", color = { fg = colors.magenta, gui = "bold" } })
 
 ins_left({
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
-	symbols = { error = " ", warn = " ", info = " " },
+	--symbols = { error = " ", warn = " ", info = " " },
 	diagnostics_color = {
 		color_error = { fg = colors.red },
 		color_warn = { fg = colors.yellow },
@@ -175,7 +234,7 @@ ins_right({ "filetype" })
 
 ins_right({
 	"diff",
-	symbols = { added = " ", modified = "柳", removed = " " },
+	--symbols = { added = " ", modified = "󰝤", removed = " " },
 	diff_color = {
 		added = { fg = colors.green },
 		modified = { fg = colors.orange },
@@ -184,7 +243,7 @@ ins_right({
 	cond = conditions.hide_in_width,
 })
 
-ins_right({ "branch", icon = "", color = { fg = colors.violet, gui = "bold" } })
+ins_right({ "branch", icon = "", color = { fg = colors.magenta, gui = "bold" } })
 
 ins_right({
 	function()

@@ -2,12 +2,6 @@ local status, telescope = pcall(require, "telescope")
 if not status then
 	return
 end
-local actions = require("telescope.actions")
-local builtin = require("telescope.builtin")
-
-local function telescope_buffer_dir()
-	return vim.fn.expand("%:p:h")
-end
 
 telescope.setup({
 	defaults = {
@@ -25,11 +19,17 @@ telescope.setup({
 			dir_icon = "🖿",
 			git_status = false,
 		},
+		repo = {
+			list = {
+				search_dirs = {
+					"~/code",
+				},
+			},
+		},
 	},
 })
-
-local fb_actions = require("telescope").extensions.file_browser.actions
 
 telescope.load_extension("file_browser")
 telescope.load_extension("scope")
 telescope.load_extension("z")
+telescope.load_extension("repo")

@@ -14,8 +14,7 @@ packer.startup(function(use)
 	use("gruvbox-community/gruvbox")
 	use("kyazdani42/nvim-web-devicons")
 
-	-- status bars
-	use("akinsho/bufferline.nvim")
+	-- buffers & tabs
 	use("nvim-lualine/lualine.nvim")
 	use("tiagovla/scope.nvim")
 
@@ -26,6 +25,8 @@ packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "cljoly/telescope-repo.nvim" })
+	use({ "stevearc/aerial.nvim" })
 
 	-- treesitter
 	use({
@@ -38,6 +39,12 @@ packer.startup(function(use)
 
 	-- lsp
 	use("neovim/nvim-lspconfig")
+	use({
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	})
 
 	-- code completion
 	use({ "hrsh7th/cmp-nvim-lsp" })
@@ -60,10 +67,22 @@ packer.startup(function(use)
 	-- git
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "tpope/vim-fugitive" })
+	use({ "kdheepak/lazygit.nvim" })
 
 	-- comments
 	use({ "preservim/nerdcommenter" })
 
 	-- golang
 	use({ "fatih/vim-go" })
+
+	-- diagnostics
+	use({ "folke/trouble.nvim" })
+
+	-- dashboard
+	use({
+		"startup-nvim/startup.nvim",
+		config = function()
+			require("startup").setup()
+		end,
+	})
 end)

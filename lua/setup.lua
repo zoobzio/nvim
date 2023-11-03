@@ -19,7 +19,6 @@ set.completeopt = menu, menuone, noselect
 
 -- use plugins
 require("zoobz.autopair")
-require("zoobz.bufferline")
 require("zoobz.cmp")
 require("zoobz.gitsigns")
 require("zoobz.lsp")
@@ -40,3 +39,8 @@ vim.cmd([[
   hi GitSignsChange guibg=NONE guifg='#fadb2f'
   hi GitSignsDelete guibg=NONE guifg='#fb4934'
 ]])
+
+-- diagnostics
+vim.diagnostic.config({
+	virtual_text = false,
+})

@@ -8,38 +8,40 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- lualine
-map("n", "<Leader>1", ":BufferLineGoToBuffer 1<CR>", { silent = true })
-map("n", "<Leader>2", ":BufferLineGoToBuffer 2<CR>", { silent = true })
-map("n", "<Leader>3", ":BufferLineGoToBuffer 3<CR>", { silent = true })
-map("n", "<Leader>4", ":BufferLineGoToBuffer 4<CR>", { silent = true })
-map("n", "<Leader>5", ":BufferLineGoToBuffer 5<CR>", { silent = true })
-map("n", "<Leader>6", ":BufferLineGoToBuffer 6<CR>", { silent = true })
-map("n", "<Leader>7", ":BufferLineGoToBuffer 7<CR>", { silent = true })
-map("n", "<Leader>8", ":BufferLineGoToBuffer 8<CR>", { silent = true })
-map("n", "<Leader>9", ":BufferLineGoToBuffer 9<CR>", { silent = true })
+map("n", "<Leader>1", ":LualineBuffersJump 1<CR>", { silent = true })
+map("n", "<Leader>2", ":LualineBuffersJump 2<CR>", { silent = true })
+map("n", "<Leader>3", ":LualineBuffersJump 3<CR>", { silent = true })
+map("n", "<Leader>4", ":LualineBuffersJump 4<CR>", { silent = true })
+map("n", "<Leader>5", ":LualineBuffersJump 5<CR>", { silent = true })
+map("n", "<Leader>6", ":LualineBuffersJump 6<CR>", { silent = true })
+map("n", "<Leader>7", ":LualineBuffersJump 7<CR>", { silent = true })
+map("n", "<Leader>8", ":LualineBuffersJump 8<CR>", { silent = true })
+map("n", "<Leader>9", ":LualineBuffersJump 9<CR>", { silent = true })
 
 -- buffers
-map("n", "<Leader>s", ":w<CR>")
-map("n", "<Leader>w", ":bd<CR>")
+map("n", "<Leader>w", ":w<CR>")
+map("n", "<Leader>q", ":bd<CR>")
 
 -- tabs
-map("n", "<Leader>t", ":tabnew<CR>")
+map("n", "<Leader>=", ":tabnew<CR>")
+map("n", "<Leader>-", ":tabclose<CR>")
 map("n", "<Leader>[", ":tabprevious<CR>")
 map("n", "<Leader>]", ":tabnext<CR>")
-map("n", "<Leader>q", ":tabclose<CR>")
 
 -- telescope finders
 map("n", "<Leader>ff", ":Telescope find_files prompt_prefix=🔍<CR>")
 map("n", "<Leader>fb", ":Telescope scope buffers prompt_prefix=🔍<CR>")
 map("n", "<Leader>ft", ":Telescope live_grep prompt_prefix=🔍<CR>")
 map("n", "<Leader>fd", ":Telescope file_browser prompt_prefix=🔍<CR>")
+map("n", "<Leader>fz", ":Telescope z prompt_prefix=🔍<CR>")
+map("n", "<Leader>fr", ":Telescope repo list prompt_prefix=🔍<CR>")
+map("n", "<Leader>fa", ":Telescope aerial prompt_prefix=🔍<CR>")
 
--- telescope z
-map("n", "<Leader>z", ":Telescope z<CR>")
+-- git
+map("n", "<Leader>gg", ":LazyGit<CR>")
 
--- telescope git
-map("n", "<Leader>gc", ":Telescope git_commits prompt_prefix=🔍<CR>")
-map("n", "<Leader>gs", ":Telescope git_status prompt_prefix=🔍<CR>")
+-- diagnostics
+map("n", "<Leader>t", ":TroubleToggle document_diagnostics<CR>")
 
 -- autocommands
 local api = vim.api

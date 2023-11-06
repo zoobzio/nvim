@@ -60,6 +60,9 @@ local conditions = {
 
 -- Config
 local config = {
+	extensions = {
+		"nvim-tree",
+	},
 	options = {
 		-- Disable sections and component separators
 		component_separators = "",
@@ -119,7 +122,7 @@ end
 
 ins_tab_left({
 	function()
-		return "▊ "
+		return "▊  "
 	end,
 	color = color,
 	padding = { left = 0, right = 1 },

@@ -29,7 +29,9 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("file_browser")
+telescope.load_extension("aerial")
 telescope.load_extension("scope")
 telescope.load_extension("z")
 telescope.load_extension("repo")
+telescope.load_extension("packer")
+telescope.load_extension("file_browser")

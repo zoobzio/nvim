@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- lualine
+-- buffers
 map("n", "<Leader>1", ":LualineBuffersJump 1<CR>", { silent = true })
 map("n", "<Leader>2", ":LualineBuffersJump 2<CR>", { silent = true })
 map("n", "<Leader>3", ":LualineBuffersJump 3<CR>", { silent = true })
@@ -17,9 +17,6 @@ map("n", "<Leader>6", ":LualineBuffersJump 6<CR>", { silent = true })
 map("n", "<Leader>7", ":LualineBuffersJump 7<CR>", { silent = true })
 map("n", "<Leader>8", ":LualineBuffersJump 8<CR>", { silent = true })
 map("n", "<Leader>9", ":LualineBuffersJump 9<CR>", { silent = true })
-
--- buffers
-map("n", "<Leader>w", ":w<CR>")
 map("n", "<Leader>q", ":bd<CR>")
 
 -- tabs

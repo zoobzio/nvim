@@ -19,6 +19,7 @@ set.completeopt = menu, menuone, noselect
 
 -- use plugins
 require("zoobz.autopair")
+--require("zoobz.chatgpt")
 require("zoobz.cmp")
 require("zoobz.gitsigns")
 require("zoobz.lsp")

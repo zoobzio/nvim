@@ -18,15 +18,29 @@ packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 	use("tiagovla/scope.nvim")
 
+	-- file tree
+	use({
+		"kyazdani42/nvim-tree.lua",
+		tag = "nightly", -- optional, updated every week. (see issue #1193)
+	})
+
 	-- telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
+	use({ "nvim-telescope/telescope-packer.nvim" })
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	use({ "cljoly/telescope-repo.nvim" })
-	use({ "stevearc/aerial.nvim" })
+
+	-- aerial
+	use({
+		"stevearc/aerial.nvim",
+		config = function()
+			require("aerial").setup()
+		end,
+	})
 
 	-- treesitter
 	use({
@@ -78,11 +92,13 @@ packer.startup(function(use)
 	-- diagnostics
 	use({ "folke/trouble.nvim" })
 
-	-- dashboard
-	use({
-		"startup-nvim/startup.nvim",
-		config = function()
-			require("startup").setup()
-		end,
-	})
+	-- ai
+	--[[use({
+		"jackMort/ChatGPT.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})]]
 end)

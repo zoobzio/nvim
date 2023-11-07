@@ -39,6 +39,10 @@ vim.cmd([[
   hi GitSignsAdd guibg=NONE guifg='#b8bb26'
   hi GitSignsChange guibg=NONE guifg='#fadb2f'
   hi GitSignsDelete guibg=NONE guifg='#fb4934'
+
+  hi LspError guibg=NONE guifg='#fb4934'
+  hi LspWarn guibg=NONE guifg='#fb4934'
+  hi LspInfo guibg=NONE guifg='#fb4934'
 ]])
 
 -- diagnostics

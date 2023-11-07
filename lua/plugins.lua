@@ -53,6 +53,7 @@ packer.startup(function(use)
 
 	-- lsp
 	use("neovim/nvim-lspconfig")
+	use("nvimdev/lspsaga.nvim")
 	use({
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function()

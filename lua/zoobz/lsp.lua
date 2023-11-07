@@ -16,3 +16,11 @@ nvim_lsp.gopls.setup({})
 
 -- Lua
 nvim_lsp.lua_ls.setup({})
+
+-- LSPSaga
+require("lspsaga").setup({
+	error_sign = "",
+	warn_sign = "⚠",
+	hint_sign = "",
+	infor_sign = "",
+})

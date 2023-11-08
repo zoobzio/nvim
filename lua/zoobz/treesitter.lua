@@ -28,6 +28,11 @@ ts.setup({
 		"lua",
 		"python",
 		"go",
+		"markdown",
+		"markdown_inline",
+		"bash",
+		"vim",
+		"regex",
 	},
 	autotag = {
 		enable = true,

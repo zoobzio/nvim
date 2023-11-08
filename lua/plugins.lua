@@ -18,23 +18,13 @@ packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 	use("tiagovla/scope.nvim")
 
-	-- file tree
-	use({
-		"kyazdani42/nvim-tree.lua",
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
-	})
-
 	-- telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
+		tag = "0.1.3",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
-	use({ "nvim-telescope/telescope-packer.nvim" })
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
-	use({ "cljoly/telescope-repo.nvim" })
-
-	-- aerial
 	use({
 		"stevearc/aerial.nvim",
 		config = function()
@@ -90,8 +80,10 @@ packer.startup(function(use)
 	-- golang
 	use({ "fatih/vim-go" })
 
-	-- diagnostics
-	use({ "folke/trouble.nvim" })
+	-- ui
+	use({ "MunifTanjim/nui.nvim" })
+	use({ "rcarriga/nvim-notify" })
+	use({ "folke/noice.nvim" })
 
 	-- ai
 	--[[use({

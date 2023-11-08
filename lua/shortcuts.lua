@@ -17,28 +17,29 @@ map("n", "<Leader>6", ":LualineBuffersJump 6<CR>", { silent = true })
 map("n", "<Leader>7", ":LualineBuffersJump 7<CR>", { silent = true })
 map("n", "<Leader>8", ":LualineBuffersJump 8<CR>", { silent = true })
 map("n", "<Leader>9", ":LualineBuffersJump 9<CR>", { silent = true })
-map("n", "<Leader>q", ":bd<CR>")
+map("n", "<Leader>q", ":bd<CR>", { silent = true })
 
 -- tabs
-map("n", "<Leader>=", ":tabnew<CR>")
-map("n", "<Leader>-", ":tabclose<CR>")
-map("n", "<Leader>[", ":tabprevious<CR>")
-map("n", "<Leader>]", ":tabnext<CR>")
+map("n", "<Leader>=", ":tabnew<CR>", { silent = true })
+map("n", "<Leader>-", ":tabclose<CR>", { silent = true })
+map("n", "<Leader>[", ":tabprevious<CR>", { silent = true })
+map("n", "<Leader>]", ":tabnext<CR>", { silent = true })
 
 -- telescope finders
-map("n", "<Leader>ff", ":Telescope find_files prompt_prefix=🔍<CR>")
-map("n", "<Leader>fb", ":Telescope scope buffers prompt_prefix=🔍<CR>")
-map("n", "<Leader>ft", ":Telescope live_grep prompt_prefix=🔍<CR>")
-map("n", "<Leader>fd", ":Telescope file_browser prompt_prefix=🔍<CR>")
-map("n", "<Leader>fz", ":Telescope z prompt_prefix=🔍<CR>")
-map("n", "<Leader>fr", ":Telescope repo list prompt_prefix=🔍<CR>")
-map("n", "<Leader>fa", ":Telescope aerial prompt_prefix=🔍<CR>")
+map("n", "<Leader>ff", ":Telescope find_files<CR>", { silent = true })
+map("n", "<Leader>fb", ":Telescope scope buffers<CR>", { silent = true })
+map("n", "<Leader>ft", ":Telescope live_grep<CR>", { silent = true })
+map("n", "<Leader>fa", ":Telescope aerial<CR>", { silent = true })
+map("n", "<Leader>fd", ":Telescope file_browser<CR>", { silent = true })
 
--- git
-map("n", "<Leader>gg", ":LazyGit<CR>")
-
--- diagnostics
-map("n", "<Leader>t", ":TroubleToggle document_diagnostics<CR>")
+-- lsp
+map("n", "<Leader>hh", ":Lspsaga hover_doc<CR>", { silent = true })
+map("n", "<Leader>ha", ":Lspsaga code_action<CR>", { silent = true })
+map("n", "<Leader>hf", ":Lspsaga finder<CR>", { silent = true })
+map("n", "<Leader>hr", ":Lspsaga rename<CR>", { silent = true })
+map("n", "<Leader>hd", ":Lspsaga diagnostic_jump_next<CR>", { silent = true })
+map("n", "<Leader>hi", ":Lspsaga incoming_calls<CR>", { silent = true })
+map("n", "<Leader>ho", ":Lspsaga outgoing_calls<CR>", { silent = true })
 
 -- autocommands
 local api = vim.api

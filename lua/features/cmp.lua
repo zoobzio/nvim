@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
 local Cmp = {}
 
@@ -22,6 +23,13 @@ local function setup_cmp()
 		window = {
 			completion = cmp.config.window.bordered(),
 			documentation = cmp.config.window.bordered(),
+		},
+		formatting = {
+			format = lspkind.cmp_format({
+				mode = "symbol", -- show only symbol annotations
+				maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+				ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+			}),
 		},
 		mapping = cmp.mapping.preset.insert({
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -58,17 +66,6 @@ local function setup_cmp()
 		}),
 	})
 
-	-- Set configuration for specific filetype.
-	--[[
-		 [cmp.setup.filetype("gitcommit", {
-		 [  sources = cmp.config.sources({
-		 [    { name = "git" },
-		 [  }, {
-		 [    { name = "buffer" },
-		 [  }),
-		 [})
-     ]]
-
 	-- Use cmdline & path source for ':'
 	cmp.setup.cmdline(":", {
 		mapping = cmp.mapping.preset.cmdline(),
@@ -93,7 +90,7 @@ end
 function Cmp.setup()
 	setup_cmp()
 	setup_luasnip()
-  setup_autopairs()
+	setup_autopairs()
 end
 
 return Cmp

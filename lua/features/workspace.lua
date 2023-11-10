@@ -7,6 +7,7 @@ local colors = {
 	cyan = "#83a598",
 	darkblue = "#076678",
 	green = "#b8bb26",
+
 	orange = "#fe8019",
 	violet = "#d3869b",
 	magenta = "#b16286",
@@ -84,7 +85,7 @@ local function setup_lualine()
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic" },
-					symbols = { error = " ", warn = " ", info = " " },
+					symbols = { error = " ", warn = " ", info = " " },
 					diagnostics_color = {
 						color_error = { fg = colors.red },
 						color_warn = { fg = colors.yellow },
@@ -134,7 +135,7 @@ local function setup_lualine()
 				{ "filetype" },
 				{
 					"diff",
-					--symbols = { added = " ", modified = "󰝤", removed = " " },
+					symbols = { added = " ", modified = " ", removed = " " },
 					diff_color = {
 						added = { fg = colors.green },
 						modified = { fg = colors.orange },

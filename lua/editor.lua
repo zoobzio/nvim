@@ -20,35 +20,40 @@ end
 
 local function setup_theme()
 	vim.cmd([[
-      colorscheme gruvbox
+    colorscheme gruvbox
 
-      filetype plugin on
+    filetype plugin on
 
-      hi Normal guibg=NONE
-      hi SignColumn guibg=NONE
-      
-      hi SagaNormal guibg=NONE
+    hi Normal guibg=NONE
+    hi SignColumn guibg=NONE
+    
+    hi SagaNormal guibg=NONE
 
-      hi NormalFloat guibg=NONE
-      hi FloatBorder guibg=NONE
-      
-      hi GitSignsAdd guibg=NONE guifg='#b8bb26'
-      hi GitSignsChange guibg=NONE guifg='#fadb2f'
-      hi GitSignsDelete guibg=NONE guifg='#fb4934'
+    hi NormalFloat guibg=NONE
+    hi FloatBorder guibg=NONE
+    
+    hi GitSignsAdd guibg=NONE guifg='#b8bb26'
+    hi GitSignsChange guibg=NONE guifg='#fadb2f'
+    hi GitSignsDelete guibg=NONE guifg='#fb4934'
 
-      hi DiagnosticSignError guibg=NONE guifg='#fb4934'
-      hi DiagnosticSignWarn guibg=NONE guifg='#fabd2f'
-      hi DiagnosticSignHint guibg=NONE guifg='#458588'
-      hi DiagnosticSignInfo guibg=NONE guifg='#83a598'
+    hi DiagnosticSignError guibg=NONE guifg='#fb4934'
+    hi DiagnosticSignWarn guibg=NONE guifg='#fabd2f'
+    hi DiagnosticSignHint guibg=NONE guifg='#458588'
+    hi DiagnosticSignInfo guibg=NONE guifg='#83a598'
 
-      hi NotifyBackground guibg='#000000'
-    ]])
+    hi NotifyBackground guibg='#000000'
+  ]])
 end
 
 local function setup_diagnostics()
 	vim.diagnostic.config({
 		virtual_text = false,
 	})
+	local signs = { Error = "", Warning = "", Hint = "", Information = "" }
+	for type, icon in pairs(signs) do
+		local hl = "DiagnosticSign" .. type
+		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+	end
 end
 
 local function setup_formatter()

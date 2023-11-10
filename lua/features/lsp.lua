@@ -30,6 +30,7 @@ local function setup_lspsaga()
 	})
 end
 
+-- setup lsplines
 local function setup_lsplines()
 	require("lsp_lines").setup()
 end

@@ -19,6 +19,7 @@ require("plugins").setup({
 	"nvimdev/lspsaga.nvim",
 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 	"ray-x/lsp_signature.nvim",
+	"onsails/lspkind.nvim",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",

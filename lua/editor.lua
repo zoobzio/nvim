@@ -28,6 +28,9 @@ local function setup_theme()
       hi SignColumn guibg=NONE
       
       hi SagaNormal guibg=NONE
+
+      hi NormalFloat guibg=NONE
+      hi FloatBorder guibg=NONE
       
       hi GitSignsAdd guibg=NONE guifg='#b8bb26'
       hi GitSignsChange guibg=NONE guifg='#fadb2f'

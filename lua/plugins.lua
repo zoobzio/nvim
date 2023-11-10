@@ -27,7 +27,7 @@ end
 
 -- Setup features from features directory
 local function setup_features()
-	for feature in io.popen('ls -pUqAL "lua/features"'):lines() do
+	for feature in io.popen('ls -pUqAL "' .. vim.fn.stdpath("config") .. '/lua/features"'):lines() do
 		feature = feature:match("^(.*)%.lua$")
 		if feature then
 			require("features." .. feature).setup()

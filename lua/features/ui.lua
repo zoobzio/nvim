@@ -3,6 +3,9 @@ local Ui = {}
 local function setup_noice()
 	require("noice").setup({
 		lsp = {
+			signature = {
+				enabled = false,
+			},
 			-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -22,7 +25,7 @@ local function setup_noice()
 end
 
 function Ui.setup()
-  setup_noice()
+	setup_noice()
 end
 
 return Ui

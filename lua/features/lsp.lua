@@ -34,11 +34,21 @@ local function setup_lsplines()
 	require("lsp_lines").setup()
 end
 
+local function setup_lspsignature()
+	require("lsp_signature").setup({
+		bind = true,
+		handler_opts = {
+			border = "rounded",
+		},
+	})
+end
+
 -- init lsp feature
 function Lsp.setup()
 	setup_lspconfig()
 	setup_lspsaga()
 	setup_lsplines()
+	setup_lspsignature()
 end
 
 return Lsp

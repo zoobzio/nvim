@@ -37,6 +37,7 @@ require("plugins").setup({
 	"MunifTanjim/nui.nvim",
 	"rcarriga/nvim-notify",
 	"folke/noice.nvim",
+	"jackMort/ChatGPT.nvim",
 })
 
 -- configure editor w/ shortcuts
@@ -71,4 +72,6 @@ require("editor").setup({
 	{ mode = "n", expr = "<Leader>hd", cmd = ":Lspsaga diagnostic_jump_next<CR>" },
 	{ mode = "n", expr = "<Leader>hi", cmd = ":Lspsaga incoming_calls<CR>" },
 	{ mode = "n", expr = "<Leader>ho", cmd = ":Lspsaga outgoing_calls<CR>" },
+	-- ai
+	{ mode = "n", expr = "<Leader>aa", cmd = ":ChatGPTEditWithInstructions<CR>" },
 })

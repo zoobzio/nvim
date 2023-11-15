@@ -35,10 +35,10 @@ require("plugins").setup({
 	"lewis6991/gitsigns.nvim",
 	"tpope/vim-fugitive",
 	"preservim/nerdcommenter",
-	"MunifTanjim/nui.nvim",
-	"rcarriga/nvim-notify",
-	"folke/noice.nvim",
-	"jackMort/ChatGPT.nvim",
+	--"MunifTanjim/nui.nvim",
+	--"rcarriga/nvim-notify",
+	--"folke/noice.nvim",
+	--"jackMort/ChatGPT.nvim",
 })
 
 -- configure editor w/ shortcuts

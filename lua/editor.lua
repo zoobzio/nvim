@@ -1,3 +1,4 @@
+local icons = require("config.icons")
 local Editor = {}
 
 local function setup_vim()
@@ -15,7 +16,7 @@ local function setup_vim()
 	vim.opt.termguicolors = true
 	vim.opt.background = "dark"
 
-	vim.opt.completeopt = "menu,menuone,noselect"
+	vim.opt.completeopt = "menu,menuone,noinsert"
 end
 
 local function setup_theme()
@@ -25,23 +26,18 @@ local function setup_theme()
     filetype plugin on
 
     hi Normal guibg=NONE
-    hi SignColumn guibg=NONE
-    
-    hi SagaNormal guibg=NONE
+    hi NormalFloat guibg='#3c3836'
+    hi SignColumn guibg='#3c3836'
+    hi FloatBorder guifg='#3c3836'
 
-    hi NormalFloat guibg=NONE
-    hi FloatBorder guibg=NONE
-    
-    hi GitSignsAdd guibg=NONE guifg='#b8bb26'
-    hi GitSignsChange guibg=NONE guifg='#fadb2f'
-    hi GitSignsDelete guibg=NONE guifg='#fb4934'
+    hi GitSignsAdd guibg='#3c3836' guifg='#b8bb26'
+    hi GitSignsChange guibg='#3c3836' guifg='#fadb2f'
+    hi GitSignsDelete guibg='#3c3836' guifg='#fb4934'
 
-    hi DiagnosticSignError guibg=NONE guifg='#fb4934'
-    hi DiagnosticSignWarn guibg=NONE guifg='#fabd2f'
-    hi DiagnosticSignHint guibg=NONE guifg='#458588'
-    hi DiagnosticSignInfo guibg=NONE guifg='#83a598'
-
-    hi NotifyBackground guibg='#000000'
+    hi DiagnosticSignError guibg='#3c3836' guifg='#fb4934'
+    hi DiagnosticSignWarn guibg='#3c3836' guifg='#fabd2f'
+    hi DiagnosticSignHint guibg='#3c3836' guifg='#458588'
+    hi DiagnosticSignInfo guibg='#3c3836' guifg='#83a598'
   ]])
 end
 
@@ -49,7 +45,7 @@ local function setup_diagnostics()
 	vim.diagnostic.config({
 		virtual_text = false,
 	})
-	local signs = { Error = "", Warning = "", Hint = "", Information = "" }
+	local signs = icons.diagnostics
 	for type, icon in pairs(signs) do
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })

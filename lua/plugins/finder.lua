@@ -58,11 +58,11 @@ return {
 			telescope.load_extension("file_browser")
 		end,
 		keys = {
-			{ "ff", ":Telescope find_files<cr>" },
-			{ "fb", ":Telescope scope buffers<cr>" },
-			{ "ft", ":Telescope live_grep<cr>" },
-			{ "fa", ":Telescope aerial<cr>" },
-			{ "fd", ":Telescope file_browser<cr>" },
+			{ "<Leader>ff", ":Telescope find_files<cr>" },
+			{ "<Leader>fb", ":Telescope scope buffers<cr>" },
+			{ "<Leader>ft", ":Telescope live_grep<cr>" },
+			{ "<Leader>fa", ":Telescope aerial<cr>" },
+			{ "<Leader>fd", ":Telescope file_browser<cr>" },
 		},
 	},
 }
